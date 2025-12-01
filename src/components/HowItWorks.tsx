@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Camera, Brain, TrendingUp, CheckCircle, DollarSign } from 'lucide-react';
 import { useState } from 'react';
+import farmerTablet from '@/assets/farmer-tablet.jpg';
 
 const HowItWorks = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -32,6 +33,16 @@ const HowItWorks = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-card/30 to-background">
       <div className="container px-4">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center text-secondary text-lg font-semibold mb-2"
+          style={{ textShadow: 'var(--glow-purple)' }}
+        >
+          AI Crop Analyzer Mobile App Coming Soon!
+        </motion.p>
+        
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,10 +56,24 @@ const HowItWorks = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
+          className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto"
         >
           Three simple steps between you and healthier crops
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-16 rounded-xl overflow-hidden border-2 border-primary/30"
+          style={{ boxShadow: 'var(--glow-cyan)' }}
+        >
+          <img 
+            src={farmerTablet} 
+            alt="Farmer using tablet to scan crops with AI" 
+            className="w-full h-auto object-cover"
+          />
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {cards.map((card, index) => (
