@@ -1,8 +1,18 @@
 import { Mail, Phone, MapPin, TrendingUp, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import heroImage from "@/assets/hero-agtech.jpg";
-import growthIcon from "@/assets/growth-icon.png";
+import ContactModal from "@/components/ContactModal";
 
 const Index = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<"audit" | "custom">("audit");
+
+  const openModal = (type: "audit" | "custom") => {
+    setModalType(type);
+    setIsModalOpen(true);
+  };
+
   return <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -19,14 +29,38 @@ const Index = () => {
             Agcom Solutions LLC
           </h1>
           
-          <p className="text-2xl md:text-3xl mb-4 text-foreground animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-            Practical AI Tools for Smarter Crop Cultivation
+          <p className="text-xl md:text-2xl mb-12 text-muted-foreground max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+            Stop losing crops to preventable disasters. Get instant AI diagnostics and predictive insights that save plants and boost your bottom line.
           </p>
           
-          <p className="text-lg md:text-xl mb-12 text-muted-foreground max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            Founded by Elijah Duffy – Award-Winning AgTech for Real Results in Agriculture
-          </p>
-          
+          <div className="flex flex-col md:flex-row gap-6 justify-center items-center mt-12 animate-in fade-in duration-700 delay-300">
+            <div className="flex flex-col items-center gap-3">
+              <Button 
+                onClick={() => openModal("audit")}
+                className="h-16 px-8 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 border-2 border-primary"
+                style={{ boxShadow: 'var(--glow-cyan)' }}
+              >
+                Protect Your Crop – Book a Free Grow Audit
+              </Button>
+              <p className="text-sm text-muted-foreground max-w-xs text-center">
+                Stop losing plants to pests & disease. Get a custom AI action plan in 48 hours.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center gap-3">
+              <Button 
+                onClick={() => openModal("custom")}
+                className="h-16 px-8 text-lg font-bold bg-secondary text-secondary-foreground hover:bg-secondary/90 border-2 border-secondary"
+                style={{ boxShadow: 'var(--glow-purple)' }}
+              >
+                Need Custom AI Agents for Your Grow?
+              </Button>
+              <p className="text-sm text-muted-foreground max-w-xs text-center">
+                Enterprise-grade vision models, automation bots, and predictive analytics built for commercial facilities.
+              </p>
+            </div>
+          </div>
+
           <div className="mt-16 flex items-center justify-center gap-4 animate-in fade-in duration-700 delay-700">
             <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent flex-1 max-w-xs" />
             <Zap className="w-8 h-8 text-primary" style={{ filter: 'drop-shadow(var(--glow-cyan))' }} />
@@ -45,15 +79,15 @@ const Index = () => {
               </h2>
               
               <p className="text-lg text-foreground leading-relaxed">
-                Launched in 2025 as a single-member LLC in Casper, Wyoming, Agcom Solutions LLC started from a simple need: making cutting-edge AI practical for everyday agriculture.
+                You're bleeding money on crop losses you could've prevented.
               </p>
               
               <p className="text-lg text-foreground leading-relaxed">
-                Today, we power growers with tools that analyze photos for instant health insights, predict yields, and streamline operations—helping small farms and large operations alike reduce waste and boost output.
+                Every day, growers lose plants to pests, nutrient issues, and disease outbreaks that show up too late. By the time you spot the problem, your yield's already tanked.
               </p>
               
               <p className="text-lg text-foreground leading-relaxed">
-                Our mobile-first approach means you can optimize your crops right from your phone, backed by a community of users who've seen real gains in efficiency and profitability.
+                Our AI tools analyze photos in seconds, predict problems before they spread, and give you the exact steps to save your crops. Mobile-first. Battle-tested. Built for growers who need results, not corporate fluff.
               </p>
               
               <div className="flex gap-4 pt-4">
@@ -81,24 +115,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Founder Section */}
+      {/* Mission Section */}
       <section className="py-20 bg-gradient-to-b from-background to-card/30">
         <div className="container px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary" style={{ textShadow: 'var(--glow-purple)' }}>
-              Built by Elijah Duffy, AgTech Entrepreneur
+              Our Mission
             </h2>
             
-            <p className="text-lg text-foreground leading-relaxed">
-              Elijah Duffy founded Agcom Solutions LLC after years of building and scaling AI tools for agriculture, drawing from hands-on experience in iOS app development, machine learning deployment, and startup growth.
-            </p>
-            
-            <p className="text-lg text-foreground leading-relaxed">
-              As the driving force behind award-winning solutions like our core diagnostic platform, Elijah combines technical expertise with a grower's mindset to create tech that delivers immediate value.
-            </p>
-            
-            <p className="text-lg text-foreground leading-relaxed">
-              He's passionate about empowering the next generation of farmers through accessible innovation.
+            <p className="text-2xl text-foreground leading-relaxed font-medium">
+              We build battle-tested AI tools that save crops, boost yields, and put more profit in growers' pockets — no hype, just results.
             </p>
           </div>
         </div>
@@ -146,10 +172,16 @@ const Index = () => {
       <footer className="py-8 border-t border-primary/20 bg-background">
         <div className="container px-4">
           <p className="text-center text-muted-foreground">
-            © 2025 Agcom Solutions LLC. Real AI for Real Agriculture | All rights reserved.
+            © 2025 Agcom Solutions LLC | Founded by Elijah Duffy | All rights reserved.
           </p>
         </div>
       </footer>
+
+      <ContactModal 
+        open={isModalOpen} 
+        onOpenChange={setIsModalOpen}
+        buttonType={modalType}
+      />
     </main>;
 };
 export default Index;
