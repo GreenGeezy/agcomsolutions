@@ -2,25 +2,21 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, TrendingUp } from "lucide-react";
 import heroImage from "@/assets/hero-agtech.jpg";
 import growthIcon from "@/assets/growth-icon.png";
-
 const Index = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
+    element?.scrollIntoView({
+      behavior: "smooth"
+    });
   };
-
-  return (
-    <main className="min-h-screen bg-background">
+  return <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url(${heroImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+        <div className="absolute inset-0 z-0" style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url(${heroImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }} />
         
         <div className="container relative z-10 px-4 py-20 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -35,11 +31,7 @@ const Index = () => {
             Founded by Elijah Duffy – Award-Winning AgTech for Real Results in Agriculture
           </p>
           
-          <Button 
-            size="lg"
-            className="text-lg px-8 py-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500"
-            onClick={() => scrollToSection("about")}
-          >
+          <Button size="lg" className="text-lg px-8 py-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500" onClick={() => scrollToSection("about")}>
             Explore Our AI Solutions
           </Button>
           
@@ -155,14 +147,7 @@ const Index = () => {
               </div>
             </div>
             
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="text-lg px-8 py-6"
-              onClick={() => window.open("mailto:agcomsol@gmail.com?subject=Join AI Tips Community", "_blank")}
-            >
-              Join Our Community for Free AI Tips
-            </Button>
+            
           </div>
         </div>
       </section>
@@ -175,8 +160,6 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </main>
-  );
+    </main>;
 };
-
 export default Index;
