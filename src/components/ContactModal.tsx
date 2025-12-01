@@ -148,7 +148,7 @@ const ContactModal = ({ open, onOpenChange, buttonType }: ContactModalProps) => 
             className="w-full h-14 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90"
             style={{ boxShadow: 'var(--glow-cyan)' }}
           >
-            {isSubmitting ? "Submitting..." : "Lock In My Spot – First 50 Bookings Get Priority Scheduling"}
+            {isSubmitting ? "Submitting..." : "Lock In My Spot – First 10 Bookings Get Priority Scheduling"}
           </Button>
         </form>
       </DialogContent>
