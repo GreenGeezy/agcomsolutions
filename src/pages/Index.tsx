@@ -294,8 +294,8 @@ const Index = () => {
                   <Mail className="w-8 h-8 text-primary" />
                 </motion.div>
                 <p className="font-medium text-foreground">Email</p>
-                <a href="mailto:agcomsol@gmail.com" className="text-primary hover:text-secondary transition-colors">
-                  agcomsol@gmail.com
+                <a href="mailto:support@smartagai.com" className="text-primary hover:text-secondary transition-colors">
+                  support@smartagai.com
                 </a>
               </motion.div>
               
@@ -360,7 +360,7 @@ const Index = () => {
       <footer className="py-8 border-t border-primary/20 bg-background">
         <div className="container px-4">
           <p className="text-center text-muted-foreground">
-            © 2025 Agcom Solutions LLC | Founded by Elijah Duffy | All rights reserved.
+            © 2025 Agcom Solutions LLC | All rights reserved.
           </p>
         </div>
       </footer>
